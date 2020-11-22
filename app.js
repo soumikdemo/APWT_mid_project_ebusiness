@@ -8,8 +8,7 @@ const registration      = require('./controllers/registration');
 const login				= require('./controllers/login');
 const logout			= require('./controllers/logout');
 const customer			= require('./controllers/customer');
-const employer		    = require('./controllers/employer'); 
-const admin  		    = require('./controllers/admin');
+
 const app				= express();
 const port				= 3000;
 
@@ -29,8 +28,7 @@ app.use('/registration', registration);
 app.use('/login', login);
 app.use('/customer', customer);
 app.use('/logout', logout);
-app.use('/employer', employer);
-app.use('/admin', admin);
+
 
 //router
 app.get('/', (req, res)=>{
