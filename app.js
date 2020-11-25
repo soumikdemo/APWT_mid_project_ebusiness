@@ -1,8 +1,10 @@
 //declaration
-const express 			= require('express');	
-const bodyParser 		= require('body-parser');
-const exSession 		= require('express-session');
-const cookieParser 		= require('cookie-parser');
+const express 						= require('express');	
+const bodyParser 					= require('body-parser'); 
+const { check, validationResult }   = require('express-validator');
+const exSession 					= require('express-session');
+const cookieParser 					= require('cookie-parser');
+
 
 const registration      = require('./controllers/registration');
 const login				= require('./controllers/login');
@@ -13,7 +15,8 @@ const app				= express();
 const port				= 3000;
 
 //configuration
-app.set('view engine', 'ejs');
+app.set('view engine', 'ejs'); 
+const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 
 //middleware
@@ -28,6 +31,8 @@ app.use('/registration', registration);
 app.use('/login', login);
 app.use('/customer', customer);
 app.use('/logout', logout);
+
+
 
 
 //router
